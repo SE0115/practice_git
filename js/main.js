@@ -83,7 +83,7 @@ promotionToggleBtn.addEventListener('click', function () {
         // 보임 처리!
         promotionEl.classList.remove('hide');
     }
-})
+});
 
 // 범위 랜덤 함수(소수점 2자리까지)
 function random(min, max) {
@@ -109,3 +109,15 @@ function floatingObject(selector, delay, size) {
 floatingObject('.floating1', 1, 15);
 floatingObject('.floating2', .5 , 15);
 floatingObject('.floating3', 1.5, 20);
+
+// ScrollMagic
+const spyEls = document.querySelectorAll('section.scroll-spy');
+spyEls.forEach(function (spyEl) {
+    new ScrollMagic
+        .Scene({
+            triggerElement: spyEl, // 보여짐의 여부를 감시할 요소를 지정
+            triggerHook: .8, //
+        })
+        .setClassToggle(spyEl, 'show')
+        .addTo(new ScrollMagic.Controller());
+});
